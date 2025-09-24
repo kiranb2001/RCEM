@@ -4,10 +4,12 @@
 # ================================
 
 # Spark memory & core settings
-DRIVER_MEMORY=2g
-EXECUTOR_MEMORY=4g
-EXECUTOR_CORES=2
-NUM_EXECUTORS=4
+
+DRIVER_MEMORY=6g
+EXECUTOR_MEMORY=12g
+EXECUTOR_CORES=4
+NUM_EXECUTORS=8
+
 
 # Path to your PySpark script
 PYSPARK_SCRIPT="/path/to/your_script.py"
