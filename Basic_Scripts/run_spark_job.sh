@@ -15,8 +15,8 @@ PYSPARK_SCRIPT="/path/to/your_script.py"
 # Spark submit command
 spark-submit \
   --master yarn \
-  --deploy-mode cluster \
-  --driver-memory ${DRIVER_MEMORY} \
+  --deploy-mode client \
+  --driver-memory ${DRIVER_MEMORY_1} \
   --executor-memory ${EXECUTOR_MEMORY} \
   --executor-cores ${EXECUTOR_CORES} \
   --num-executors ${NUM_EXECUTORS} \
