@@ -1,12 +1,12 @@
 Tripmetrics to NQS Temporary Mapping
 ------------------------------------
 SELECT
-    tripstatus
+    tripstatus,
     count(distinct imsi) AS roamer_count,
     sum(scorenumerator) AS numerator_score,
     sum(scoredenominator) AS denominator_score
 FROM rcem_nqs_dly_tmp
-WHERE (serviceid = 0) and (ingredientid = -1) AND (eventtype = -1) AND (rat = -1) group by tripstatus
+WHERE (serviceid = 0) and (ingredientid = -1) AND (eventtype = -1) AND (rat = -1) group by tripstatus order by tripstatus
 
 select tripstatus,count(distinct imsi) as roamer_count,sum(overallavgscore) as numerator_score, count(*) as denominator_score from trip_metrics_closed where tripstatus in (2,3) and bintime = (select max(bintime) from trip_metrics_open where tripstatus in (0,1)) and overallbucketid<>0 and triptype in ('C', 'N') group by tripstatus
 
@@ -14,7 +14,7 @@ select tripstatus,count(distinct imsi) as roamer_count,sum(overallavgscore) as n
 NQS Temporary to NQS Final Table
 --------------------------------
 SELECT
-    tripstatus
+    tripstatus,
     count(distinct imsi) AS roamer_count,
     sum(scorenumerator) AS numerator_score,
     sum(scoredenominator) AS denominator_score
